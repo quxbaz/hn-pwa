@@ -26,7 +26,7 @@ const dom = {
 
   Comments (story) {
     const link = element('a', 'Comments')
-    // link.href = `https://news.ycombinator.com/item?id=${story.objectID}`
+    link.href = `https://news.ycombinator.com/item?id=${story.objectID}`
     link.innerText = `${story.num_comments} comments`
     return link
   },
@@ -85,7 +85,7 @@ async function getFrontPage () {
 //
 
 async function main () {
-  // initServiceWorker()
+  initServiceWorker()
   const Content = document.getElementById('Content')
   const stories = await getFrontPage()
   console.log(stories)
