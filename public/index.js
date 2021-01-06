@@ -9,24 +9,28 @@ const ENDPONTS = {
 
 /* DOM render functions */
 
-function renderStory (story, index=0) {
-  const component = document.createElement('li')
-  const meta = document.createElement('span')
-  const link = document.createElement('a')
-  meta.innerText = `${index + 1}. ${story.points} points, ${story.num_comments} comments: `
-  link.innerText = story.title
-  link.href = story.url
-  component.appendChild(meta)
-  component.appendChild(link)
-  return component
-}
+const dom = {
 
-function renderStories (stories) {
-  const component = document.createElement('ul')
-  stories.forEach((story, i) => {
-    component.appendChild(renderStory(story, i))
-  })
-  return component
+  Story (story, index) {
+    const component = document.createElement('li')
+    const meta = document.createElement('span')
+    const link = document.createElement('a')
+    meta.innerText = `${index + 1}. ${story.points} points, ${story.num_comments} comments: `
+    link.innerText = story.title
+    link.href = story.url
+    component.appendChild(meta)
+    component.appendChild(link)
+    return component
+  },
+
+  Stories (stories) {
+    const component = document.createElement('ul')
+    stories.forEach((story, i) => {
+      component.appendChild(dom.Story(story, i))
+    })
+    return component
+  },
+
 }
 
 /* Service worker and cache related */
@@ -56,7 +60,7 @@ async function main () {
   const Content = document.getElementById('Content')
   const stories = await getFrontPage()
   console.log(stories)
-  const div = renderStories(stories)
+  const div = dom.Stories(stories)
   Content.replaceWith(div)
 }
 
