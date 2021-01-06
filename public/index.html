@@ -13,13 +13,27 @@
       <section class="description-text">
         <p>
           This is a test.
-          <br />
-          Each link below is pre-cached in the background by a service worker.
-          <br />
-          When you click a link, it should load <em>instantly</em>.
-          <br />
-          That does mean <em>instantly</em>. If there's any perceptible wait time at
-          all, it means this test is <em>not</em> functioning properly.
+        </p>
+        <p>
+          Each comments link below is pre-cached in the background by a service worker.
+        </p>
+        <p>
+          When you click a comments link, it should load <em>instantly</em>.
+        </p>
+        <p>
+          Story links will load normally (ie, not instantly). That's because
+          service workers are scoped by domain. Any resource you cache will only
+          be shared by browser tabs sharing the same domain. When you navigate
+          to a different URL, the service worker will no longer be operating
+          within that context.
+        </p>
+        <p>
+          <i>It's possible that there might be
+          a <a href="https://www.google.com/search?sxsrf=ALeKk01p1CNBSNnJ_hrnn9qQaViJWCvsQg%3A1609956880096&ei=EP71X9ifBYrW5gLrhpXYBw&q=service+worker+can+you+cache+a+resource+from+another+origin&oq=service+worker+can+you+cache+a+resource+from+another+origin&gs_lcp=CgZwc3ktYWIQAzIFCCEQoAEyBQghEKABMgUIIRCgATIFCCEQoAEyBQghEKABOgQIABBHOgUIIRCrAlCuwxZYkccWYPDIFmgAcAN4AIAB_wKIAaIIkgEDMy0zmAEAoAEBqgEHZ3dzLXdpesgBCMABAQ&sclient=psy-ab&ved=0ahUKEwjY58Pf9IfuAhUKq1kKHWtDBXsQ4dUDCA0&uact=5">workaround</a>
+          to this.</i>
+        </p>
+        <p>
+          Current status: <strong>Not working, in progress</strong>
         </p>
       </section>
       <div id="Content">

@@ -6,14 +6,11 @@
 }
 
 body {
+  margin-top: 0;
   font-family: helvetica, arial, sans-serif;
   font-size: 15px;
   line-height: 1.5rem;
   background: var(--hn-grey-9);
-}
-
-em {
-  text-decoration: underline;
 }
 
 ul, ol, li {
@@ -43,6 +40,7 @@ header h1 {
 .description-text {
   margin: 34px 0 24px;
   padding: 12px 30px;
+  background: white;
   border: 1px solid black;
 }
 

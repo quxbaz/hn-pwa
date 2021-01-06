@@ -9,62 +9,64 @@ const ENDPONTS = {
 
 /* DOM render functions */
 
-function element (tag, className) {
+/*
+  `className` should be an `attrs` object.
+*/
+function element (tag, className, children) {
   const el = document.createElement(tag)
   if (className != null)
     el.classList.add(className)
+  if (typeof children === 'string') {
+    el.innerText = children
+  } else if (Array.isArray(children)) [
+    children.forEach((child) => el.appendChild(child))
+  ]
   return el
 }
 
 const dom = {
 
   Points (number) {
-    const points = element('span')
-    points.innerText = `${number} points`
-    return points
+    return element('span', null, `${number} points`)
   },
 
   Comments (story) {
-    const link = element('a', 'Comments')
+    const link = element('a', 'Comments', `${story.num_comments} comments`)
     link.href = `https://news.ycombinator.com/item?id=${story.objectID}`
-    link.innerText = `${story.num_comments} comments`
     return link
   },
 
   ObjectId (id) {
-    const objectId = element('span', 'ObjectId')
-    objectId.innerText = `id=${id}`
+    const objectId = element('span', 'ObjectId', `id=${id}`)
     return objectId
   },
 
   Meta (story) {
-    const meta = element('div', 'Meta')
-    meta.appendChild(dom.Points(story.points))
-    meta.appendChild(dom.Comments(story))
-    meta.appendChild(dom.ObjectId(story.objectID))
-    return meta
+    return element('div', 'Meta', [
+      dom.Points(story.points),
+      dom.Comments(story),
+      dom.ObjectId(story.objectID),
+    ])
   },
 
   Title (story, index) {
-    const title = element('a', 'Title')
-    title.innerText = `${index + 1}. ${story.title}`
-    title.href = story.url
-    return title
+    const link = element('a', null, `${story.title}`)
+    link.href = story.url
+    return element('span', 'Title', [
+      element('span', null, `${index + 1}. `),
+      link,
+    ])
   },
 
   Story (story, index) {
-    const component = element('li')
-    component.appendChild(dom.Title(story, index))
-    component.appendChild(dom.Meta(story))
-    return component
+    return element('li', null, [
+      dom.Title(story, index),
+      dom.Meta(story),
+    ])
   },
 
   Stories (stories) {
-    const component = element('ol')
-    stories.forEach((story, i) => {
-      component.appendChild(dom.Story(story, i))
-    })
-    return component
+    return element('ol', null, stories.map(dom.Story))
   },
 
 }
