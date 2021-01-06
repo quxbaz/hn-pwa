@@ -26,7 +26,7 @@ const dom = {
 
   Comments (story) {
     const link = element('a', 'Comments')
-    link.href = `https://news.ycombinator.com/item?id=${story.objectId}`
+    // link.href = `https://news.ycombinator.com/item?id=${story.objectID}`
     link.innerText = `${story.num_comments} comments`
     return link
   },
