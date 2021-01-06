@@ -31,10 +31,17 @@ const dom = {
     return link
   },
 
+  ObjectId (id) {
+    const objectId = element('span', 'ObjectId')
+    objectId.innerText = `id=${id}`
+    return objectId
+  },
+
   Meta (story) {
     const meta = element('div', 'Meta')
     meta.appendChild(dom.Points(story.points))
     meta.appendChild(dom.Comments(story))
+    meta.appendChild(dom.ObjectId(story.objectID))
     return meta
   },
 

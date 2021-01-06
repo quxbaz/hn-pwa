@@ -55,7 +55,7 @@ header h1 {
 }
 
 .Comments {
-  margin-left: 6px;
+  margin: 0 6px;
   color: var(--hn-grey-5);
   text-decoration: none;
 }
