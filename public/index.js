@@ -10,23 +10,23 @@ const ENDPONTS = {
 /* DOM render functions */
 
 function renderStory (story, index=0) {
-  const div = document.createElement('div')
+  const component = document.createElement('li')
   const meta = document.createElement('span')
   const link = document.createElement('a')
   meta.innerText = `${index + 1}. ${story.points} points, ${story.num_comments} comments: `
   link.innerText = story.title
   link.href = story.url
-  div.appendChild(meta)
-  div.appendChild(link)
-  return div
+  component.appendChild(meta)
+  component.appendChild(link)
+  return component
 }
 
 function renderStories (stories) {
-  const div = document.createElement('div')
+  const component = document.createElement('ul')
   stories.forEach((story, i) => {
-    div.appendChild(renderStory(story, i))
+    component.appendChild(renderStory(story, i))
   })
-  return div
+  return component
 }
 
 /* Service worker and cache related */
@@ -53,11 +53,11 @@ async function getFrontPage () {
 
 async function main () {
   // initServiceWorker()
-  const Main = document.getElementById('Main')
+  const Content = document.getElementById('Content')
   const stories = await getFrontPage()
   console.log(stories)
   const div = renderStories(stories)
-  Main.appendChild(div)
+  Content.replaceWith(div)
 }
 
 main()
