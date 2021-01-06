@@ -4,7 +4,7 @@
 
 const ENDPONTS = {
   // Matches the URL to retrieve the front page of HN in structured data (JSON).
-  frontPage: 'http://hn.algolia.com/api/v1/search?tags=front_page',
+  frontPage: 'https://hn.algolia.com/api/v1/search?tags=front_page',
 }
 
 /* DOM render functions */
