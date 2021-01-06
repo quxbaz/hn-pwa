@@ -18,22 +18,28 @@ function element (tag, className) {
 
 const dom = {
 
+  Points (number) {
+    const points = element('span')
+    points.innerText = `${number} points`
+    return points
+  },
+
   Comments (story) {
-    const link = element('a')
+    const link = element('a', 'Comments')
     link.href = `https://news.ycombinator.com/item?id=${story.objectId}`
     link.innerText = `${story.num_comments} comments`
     return link
   },
 
   Meta (story) {
-    const meta = element('div')
+    const meta = element('div', 'Meta')
+    meta.appendChild(dom.Points(story.points))
     meta.appendChild(dom.Comments(story))
-    meta.innerText = `${story.points} points, ${story.num_comments} comments`
     return meta
   },
 
   Title (story, index) {
-    const title = element('a')
+    const title = element('a', 'Title')
     title.innerText = `${index + 1}. ${story.title}`
     title.href = story.url
     return title

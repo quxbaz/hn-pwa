@@ -1,5 +1,6 @@
 :root {
-  --hn-grey: hsl(60deg 31% 95%);
+  --hn-grey-5: hsl(0deg 0% 51%);
+  --hn-grey-9: hsl(60deg 31% 95%);
   --hn-orange: hsl(24deg 100% 50%);
   --hn-orange-light: hsl(24deg 100% 70%);
 }
@@ -8,7 +9,7 @@ body {
   font-family: helvetica, arial, sans-serif;
   font-size: 15px;
   line-height: 1.5rem;
-  background: var(--hn-grey);
+  background: var(--hn-grey-9);
 }
 
 em {
@@ -43,4 +44,22 @@ header h1 {
   margin: 34px 0 24px;
   padding: 12px 30px;
   border: 1px solid black;
+}
+
+.Title {
+  /* text-decoration: none; */
+}
+
+.Meta {
+  color: var(--hn-grey-5);
+}
+
+.Comments {
+  margin-left: 6px;
+  color: var(--hn-grey-5);
+  text-decoration: none;
+}
+
+.Comments:hover {
+  text-decoration: underline;
 }
