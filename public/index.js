@@ -88,7 +88,7 @@ async function main () {
   initServiceWorker()
   const Content = document.getElementById('Content')
   const stories = await getFrontPage()
-  console.log(stories)
+  // console.log(stories)
   const div = dom.Stories(stories)
   Content.replaceWith(div)
 }
