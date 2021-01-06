@@ -9,22 +9,44 @@ const ENDPONTS = {
 
 /* DOM render functions */
 
+function element (tag, className) {
+  const el = document.createElement(tag)
+  el.classList.add(className)
+  return el
+}
+
 const dom = {
 
+  Comments (story) {
+    const link = element('a')
+    link.href = `https://news.ycombinator.com/item?id=${story.objectId}`
+    link.innerText = `${story.num_comments} comments`
+    return link
+  },
+
+  Meta (story) {
+    const meta = element('div')
+    meta.appendChild(dom.Comments(story))
+    meta.innerText = `${story.points} points, ${story.num_comments} comments`
+    return meta
+  },
+
+  Title (story, index) {
+    const title = element('a')
+    title.innerText = `${index + 1}. ${story.title}`
+    title.href = story.url
+    return title
+  },
+
   Story (story, index) {
-    const component = document.createElement('li')
-    const meta = document.createElement('span')
-    const link = document.createElement('a')
-    meta.innerText = `${index + 1}. ${story.points} points, ${story.num_comments} comments: `
-    link.innerText = story.title
-    link.href = story.url
-    component.appendChild(meta)
-    component.appendChild(link)
+    const component = element('li')
+    component.appendChild(dom.Title(story, index))
+    component.appendChild(dom.Meta(story))
     return component
   },
 
   Stories (stories) {
-    const component = document.createElement('ul')
+    const component = element('ol')
     stories.forEach((story, i) => {
       component.appendChild(dom.Story(story, i))
     })

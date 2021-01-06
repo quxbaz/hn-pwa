@@ -1,6 +1,7 @@
 :root {
   --hn-grey: hsl(60deg 31% 95%);
   --hn-orange: hsl(24deg 100% 50%);
+  --hn-orange-light: hsl(24deg 100% 70%);
 }
 
 body {
@@ -12,6 +13,16 @@ body {
 
 em {
   text-decoration: underline;
+}
+
+ul, ol, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 8px;
 }
 
 #Main {
@@ -26,4 +37,10 @@ header {
 
 header h1 {
   color: white;
+}
+
+.description-text {
+  margin: 34px 0 24px;
+  padding: 12px 30px;
+  border: 1px solid black;
 }
