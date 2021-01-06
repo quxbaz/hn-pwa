@@ -1,0 +1,16 @@
+{
+  "short_name": "HN PWA",
+  "name": "HN PWA",
+  "icons": [
+    {
+      "src": "/images/icon.png",
+      "type": "image/png",
+      "sizes": "18x18"
+    }
+  ],
+  "start_url": "/index.html?source=pwa",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#ff00ff"
+}

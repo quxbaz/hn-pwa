@@ -1,0 +1,29 @@
+:root {
+  --hn-grey: hsl(60deg 31% 95%);
+  --hn-orange: hsl(24deg 100% 50%);
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5rem;
+  background: var(--hn-grey);
+}
+
+em {
+  text-decoration: underline;
+}
+
+#Main {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+header {
+  padding: 18px 40px;
+  background: var(--hn-orange);
+}
+
+header h1 {
+  color: white;
+}

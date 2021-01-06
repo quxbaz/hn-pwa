@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="./index.css">
+    <title>HN PWA</title>
+  </head>
+  <body>
+    <div id="Main">
+      <header>
+        <h1>Hacker News PWA</h1>
+      </header>
+      <section>
+        <p>
+          This is a test.
+          <br />
+          Each link below is pre-cached in the background by a service worker.
+          <br />
+          When you click a link, it should load <em>instantly</em>.
+          <br />
+          That does mean <em>instantly</em>. If there's any perceptible wait time at
+          all, it means this test is <em>not</em> functioning properly.
+        </p>
+      </section>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
