@@ -11,7 +11,8 @@ const ENDPONTS = {
 
 function element (tag, className) {
   const el = document.createElement(tag)
-  el.classList.add(className)
+  if (className != null)
+    el.classList.add(className)
   return el
 }
 
